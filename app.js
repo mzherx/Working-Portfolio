@@ -16,7 +16,6 @@ app.get('/about', (req, res) => res.render('about'));
 app.get('/service', (req, res) => res.render('service'));
 app.get('/faq', (req, res) => res.render('faq'));
 app.get('/portfolio', (req, res) => res.render('portfolio'));
-app.get('/portfolio-list', (req, res) => res.render('portfolio-list'));
 app.get('/portfolio-single', (req, res) => res.render('portfolio-single'));
 app.get('/contact', (req, res) => res.render('contact'));
 
