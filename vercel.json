@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/index.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/api/index.js" },
+    { "src": "/about", "dest": "/api/index.js" },
+    { "src": "/contact", "dest": "/api/index.js" },
+    { "src": "/faq", "dest": "/api/index.js" },
+    { "src": "/pricing", "dest": "/api/index.js" },
+    { "src": "/testimonial", "dest": "/api/index.js" },
+    { "src": "/portfolio", "dest": "/api/index.js" },
+    { "src": "/portfolio-list", "dest": "/api/index.js" },
+    { "src": "/portfolio-single", "dest": "/api/index.js" },
+    { "src": "/single-service", "dest": "/api/index.js" }
+  ]
+}
