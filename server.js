@@ -3,8 +3,11 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Serve static files from the 'assets' folder
-app.use(express.static(path.join(__dirname, 'assets')));
+// ✅ Serve static files from the 'assets' folder
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
+// ✅ Optional: also serve HTML files from root (if needed)
+app.use(express.static(__dirname));
 
 // Routes for HTML pages
 app.get('/', (req, res) => {
@@ -36,10 +39,10 @@ app.get('/pricing', (req, res) => {
 });
 
 app.get('/services', (req, res) => {
-  res.sendFile(path.join(__dirname, 'services.html'));
+  res.sendFile(path.join(__dirname, 'service.html'));
 });
 
-app.get('/services-details', (req, res) => {
+app.get('/servicess-details', (req, res) => {
   res.sendFile(path.join(__dirname, 'service-details.html'));
 });
 
