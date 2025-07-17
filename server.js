@@ -34,10 +34,6 @@ app.get('/portfolio-single', (req, res) => {
   res.sendFile(path.join(__dirname, 'portfolio-single.html'));
 });
 
-app.get('/pricing', (req, res) => {
-  res.sendFile(path.join(__dirname, 'pricing.html'));
-});
-
 app.get('/services', (req, res) => {
   res.sendFile(path.join(__dirname, 'service.html'));
 });
@@ -48,10 +44,6 @@ app.get('/servicess-details', (req, res) => {
 
 app.get('/faq', (req, res) => {
   res.sendFile(path.join(__dirname, 'faq.html'));
-});
-
-app.get('/testimonial', (req, res) => {
-  res.sendFile(path.join(__dirname, 'testimonial.html'));
 });
 
 app.get('/blog-grid', (req, res) => {
