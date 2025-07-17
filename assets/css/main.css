@@ -9484,6 +9484,7 @@ blockquote i {
   transform-origin: left top;
   transition: all 0.5s 0s ease-out;
   z-index: -1;
+  opacity: 30%;
 }
 @media (max-width: 767px) {
   .wt-process-thumb img {
