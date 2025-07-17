@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Mazher</title>
-    <meta name="description" content="">
+    <title>Mazher – Design & Development</title>
+    <meta name="description" content="Passionate about automating workflows, designing seamless UIs. I blend creativity with technology to build modern experiences.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Place favicon.ico in the root directory -->
@@ -263,21 +263,25 @@
                                     <div class="wt-contact-section-wrapper">
                                         <h4 class="wt-contact-section-title">let’s work together</h4>
                                     </div>
-                                    <form id="contact-form" action="/api/mail" method="POST">
+                                    <form id="contact-form" action="https://formsubmit.co/mazheriftikhar1@gmail.com"
+                                        method="POST">
+                                        <!-- Hidden inputs for FormSubmit -->
+                                        <input type="hidden" name="_captcha" value="false">
+                                        <input type="hidden" name="_template" value="box">
 
                                         <div class="row">
                                             <div class="col-xl-12">
                                                 <div class="form-input">
                                                     <label>Full name</label>
                                                     <input type="text" id="name" name="name"
-                                                        placeholder="Joshua V. Brown" required="">
+                                                        placeholder="Joshua V. Brown" required>
                                                 </div>
                                             </div>
                                             <div class="col-xl-12">
                                                 <div class="form-input">
-                                                    <label>email address</label>
-                                                    <input type="email" id="emailThree" name="email"
-                                                        placeholder="mazheriftikhar1@gmail.com" required="">
+                                                    <label>Email address</label>
+                                                    <input type="email" id="email" name="email"
+                                                        placeholder="mazheriftikhar1@gmail.com" required>
                                                 </div>
                                             </div>
                                             <div class="col-xl-12">
@@ -301,9 +305,9 @@
                                             </div>
                                             <div class="col-xl-12">
                                                 <div class="form-input">
-                                                    <label>message</label>
+                                                    <label>Message</label>
                                                     <textarea name="message" id="message"
-                                                        placeholder="write message"></textarea>
+                                                        placeholder="Write message"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
@@ -320,7 +324,22 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <p class="ajax-response"></p>
+
+                                        <!-- Success message -->
+                                        <p id="form-message" style="
+                                        display: none;
+                                        margin-top: 20px;
+                                        padding: 15px 20px;
+                                        border: 1px solid #f1ff9d;
+                                        border-left: 5px solid #f1ff9d;
+                                        background-color: #1d1f21;
+                                        color: #f1ff9d;
+                                        font-weight: 600;
+                                        border-radius: 4px;
+                                        box-shadow: 0 2px 10px rgba(92, 195, 116, 0.15);
+                                        transition: all 0.3s ease;">
+                                            Your message has been sent successfully, we will get back to you Soon , check your Inbox actively!
+                                        </p>
                                     </form>
                                 </div>
                             </div>
@@ -491,10 +510,34 @@
     <script src="assets/js/vanilla-tilt.min.js"></script>
     <script src="assets/js/isotope-pkgd.js"></script>
     <script src="assets/js/imagesloaded-pkgd.js"></script>
-    <script src="assets/js/ajax-form.js"></script>
+    <!-- <script src="assets/js/ajax-form.js"></script> -->
     <script src="assets/js/slider-active.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/wt-cursor.js"></script>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Stop default redirect
+            const form = e.target;
+
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('form-message').style.display = 'block';
+                    form.reset();
+                } else {
+                    alert("❌ Something went wrong. Please try again.");
+                }
+            }).catch(error => {
+                alert("❌ There was an error submitting the form.");
+            });
+        });
+    </script>
 </body>
 
 </html>
